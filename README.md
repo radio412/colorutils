@@ -11,7 +11,7 @@ Green = [142, 196, 73, 255];
 Blue = [21, 137, 208, 255];
 ```
 
-Call rgbaFadeSet with an array, alternating between colors and span values.
+Call rgbaFadeSet with an array, alternating between colors and span values:
 ```sh
 colorutils.rgbaFadeSet([Red, 100, Yellow]); // creates 100 colors between red and yellow
 colorutils.rgbaFadeSet([Red, 70, Yellow, 30, Blue]); //creates 70 colors between red and yellow and 30 between yellow and blue.
