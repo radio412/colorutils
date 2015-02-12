@@ -3,7 +3,7 @@ This is a simple color function set for dynamic range heat mapping. Any number o
 
 Example usage:
 
-Example colors:
+Some example colors to work with:
 ```sh
 Red = [255, 0, 0, 255];
 Yellow =  [254, 232, 75, 255];
