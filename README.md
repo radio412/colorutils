@@ -28,4 +28,5 @@ var domain = [-100,100];
 var measureColors = colorutils.convertMeasuresToColors(measures, colorSet, domain);
 ```
 Results can be used to color the measures any way you wish. Here I simply populated divs and set the background color:
+
 ![Alt text](http://i.imgur.com/G1KYAwi.png);
