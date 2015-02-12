@@ -30,3 +30,5 @@ var measureColors = colorutils.convertMeasuresToColors(measures, colorSet, domai
 Results can be used to color the measures any way you wish. Here I simply populated divs and set the background color:
 
 ![Alt text](http://i.imgur.com/G1KYAwi.png)
+
+See the example HTML file to see how I did this.
