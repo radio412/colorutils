@@ -16,6 +16,9 @@ Call rgbaFadeSet with an array, alternating between colors and span values:
 colorutils.rgbaFadeSet([Red, 100, Yellow]); // creates 100 colors between red and yellow
 colorutils.rgbaFadeSet([Red, 70, Yellow, 30, Blue]); //creates 70 colors between red and yellow and 30 between yellow and blue.
 ```
+The Results of which can be used to create a legend with any method you choose. Here I used divs:
+![Alt text](http://i.imgur.com/gjkc688.png)
+
 You can feed the results of the rgbaFadeSet function back into the convertMeasuresToColors function. Values can be negative, and a domain may be specified. Setting the domain does not clamp! Color functions should not be in charge of clamping anything.
 
 ```sh
