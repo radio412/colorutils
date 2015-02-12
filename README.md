@@ -31,4 +31,4 @@ Results can be used to color the measures any way you wish. Here I simply popula
 
 ![Alt text](http://i.imgur.com/G1KYAwi.png)
 
-See the example HTML file to see how I did this.
+See the example HTML file to see how I did this with Divs.
