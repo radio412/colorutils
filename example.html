@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>colorutils</title>
+</head>
+<script src="src/colorutils.js"></script>
+<body>
+<script>
+
+Red = [255, 0, 0, 255];
+Yellow =  [254, 232, 75, 255];
+Green = [142, 196, 73, 255];
+Blue = [21, 137, 208, 255];
+
+
+function buildColorMap(colorSet){
+	var measures = [-54,23,12,16,-68,-24,19,22,-15,44,33,78,11];
+	var measureColors = colorutils.convertMeasuresToColors(measures, colorSet, [-100,100]);
+	var len = colorSet[0].length;
+	var holderdiv = document.createElement('div');
+	var att = document.createAttribute("style");
+	att.value = "margin:20px;";
+	holderdiv.setAttributeNode(att);
+	for(var i=0; i < len; i++){
+		var rgba = "";
+		var r = Math.round(colorSet[0][i]);
+		var g = Math.round(colorSet[1][i]);
+		var b = Math.round(colorSet[2][i]);
+		var a = Math.round(colorSet[3][i])/255;
+		rgba = "rgba("+r+","+g+","+b+","+a+");";
+		var div = document.createElement('div');
+		var att = document.createAttribute("style");
+		att.value = "float:left; height:20px; width:5px; background-color:"+rgba;
+		div.setAttributeNode(att);
+		holderdiv.appendChild(div);
+	}
+	document.body.appendChild(holderdiv);
+	document.body.appendChild(document.createElement('br'));
+	var holderdiv2 = document.createElement('div');
+	var att = document.createAttribute("style");
+	att.value = "margin:20px; display:inline-block;";
+	holderdiv2.setAttributeNode(att);
+	for(var i in measures){
+		var valuediv = document.createElement('div');
+		var att = document.createAttribute("style");
+		att.value = 'clear:left; padding:5px; font-family: "Helvetica", Arial, Sans;font-size:12px;height:15px;width:25px;background-color:'+measureColors[i]+';';
+		valuediv.setAttributeNode(att);
+		var label = document.createElement('div');
+		label.innerHTML = (measures[i]);
+		valuediv.appendChild(label);
+		holderdiv2.appendChild(valuediv);
+	}
+	document.body.appendChild(holderdiv2);
+}
+
+buildColorMap(colorutils.rgbaFadeSet([Red, 100, Yellow]));
+buildColorMap(colorutils.rgbaFadeSet([Red, 70, Yellow, 30, Blue]));
+
+
+</script>
+</body>
+</html5
