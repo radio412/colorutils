@@ -27,8 +27,14 @@ var measures = [-54,23,12,16,-68,-24,19,22,-15,44,33,78,11];
 var domain = [-100,100];
 var measureColors = colorutils.convertMeasuresToColors(measures, colorSet, domain);
 ```
+
+rgbaFadeSet returns an array with 4 child arrays: [Rs,Gs,Bs,As]. You can also use colorutils to pass this color set and receive an array of colors formatted to different types. 
+
+```sh
+```
 Results can be used to color the measures any way you wish. Here I simply populated divs and set the background color:
 
 ![Alt text](http://i.imgur.com/G1KYAwi.png)
 
 See the example HTML file to see how I did this with Divs.
+
