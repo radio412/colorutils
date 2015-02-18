@@ -15,9 +15,6 @@ function buildColorMap(colorSet){
 	var measures = [-54,23,12,16,-68,-24,19,22,-15,44,33,78,11];
 	var measureColors = colorutils.convertMeasuresToColors(measures, colorSet, [-100,100]);
 	var hexSet = colorutils.convertRGBAArrays(colorSet, colorutils.rgbToCSSRGB);
-	var test = colorutils.convertRGBAArrays(colorSet, function(r,g,b,a){ 
-		console.log(r,g,b,a);
-	});
 	var holderdiv = document.createElement('div');
 	var att = document.createAttribute("style");
 	att.value = "margin:20px;";
@@ -49,7 +46,6 @@ function buildColorMap(colorSet){
 }
 buildColorMap(colorutils.rgbaFadeSet([Red, 100, Yellow]));
 buildColorMap(colorutils.rgbaFadeSet([Red, 70, Yellow, 30, Blue]));
-
 </script>
 </body>
 </html>
