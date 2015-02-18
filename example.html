@@ -7,31 +7,25 @@
 <script src="src/colorutils.js"></script>
 <body>
 <script>
-
 Red = [255, 0, 0, 255];
 Yellow =  [254, 232, 75, 255];
 Green = [142, 196, 73, 255];
 Blue = [21, 137, 208, 255];
-
-
 function buildColorMap(colorSet){
 	var measures = [-54,23,12,16,-68,-24,19,22,-15,44,33,78,11];
 	var measureColors = colorutils.convertMeasuresToColors(measures, colorSet, [-100,100]);
-	var len = colorSet[0].length;
+	var hexSet = colorutils.convertRGBAArrays(colorSet, colorutils.rgbToCSSRGB);
+	var test = colorutils.convertRGBAArrays(colorSet, function(r,g,b,a){ 
+		console.log(r,g,b,a);
+	});
 	var holderdiv = document.createElement('div');
 	var att = document.createAttribute("style");
 	att.value = "margin:20px;";
 	holderdiv.setAttributeNode(att);
-	for(var i=0; i < len; i++){
-		var rgba = "";
-		var r = Math.round(colorSet[0][i]);
-		var g = Math.round(colorSet[1][i]);
-		var b = Math.round(colorSet[2][i]);
-		var a = Math.round(colorSet[3][i])/255;
-		rgba = "rgba("+r+","+g+","+b+","+a+");";
+	for(var i=0; i < hexSet.length; i++){
 		var div = document.createElement('div');
 		var att = document.createAttribute("style");
-		att.value = "float:left; height:20px; width:5px; background-color:"+rgba;
+		att.value = "float:left; height:20px; width:5px; background-color:"+hexSet[i];
 		div.setAttributeNode(att);
 		holderdiv.appendChild(div);
 	}
@@ -53,10 +47,8 @@ function buildColorMap(colorSet){
 	}
 	document.body.appendChild(holderdiv2);
 }
-
 buildColorMap(colorutils.rgbaFadeSet([Red, 100, Yellow]));
 buildColorMap(colorutils.rgbaFadeSet([Red, 70, Yellow, 30, Blue]));
-
 
 </script>
 </body>
