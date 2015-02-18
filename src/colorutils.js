@@ -92,8 +92,9 @@ colorutils.convertMeasuresToColors = function(valuearr, colorSet, minMax){
 }
 colorutils.convertRGBAArrays = function(colorSet, f){
 	var len = colorSet[0].length;
-	console.log(len);
-	console.log(f);
+	if(f == undefined){
+		f = colorutils.rgbToCSSRGB;
+	}
 	var out = [];
 	for(var i=0; i < len; i++){
 		var rgba = "";
