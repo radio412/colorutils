@@ -90,3 +90,71 @@ colorutils.convertMeasuresToColors = function(valuearr, colorSet, minMax){
 	}
 	return out;
 }
+colorutils.convertRGBAArrays = function(colorSet, f){
+	var len = colorSet[0].length;
+	console.log(len);
+	console.log(f);
+	var out = [];
+	for(var i=0; i < len; i++){
+		var rgba = "";
+		var r = Math.round(colorSet[0][i]);
+		var g = Math.round(colorSet[1][i]);
+		var b = Math.round(colorSet[2][i]);
+		var a = Math.round(colorSet[3][i]);
+		out.push(f(r,g,b,a));
+	}
+	return out;
+}
+
+colorutils.rgbToHex = function(r, g, b, a) {
+    return colorutils.toHex(r) + colorutils.toHex(g) + colorutils.toHex(b) + colorutils.toHex(a);
+};
+colorutils.rgbToXHex = function(r, g, b) {
+    return "0x" + colorutils.toHex(r) + colorutils.toHex(g) + colorutils.toHex(b);
+};
+colorutils.rgbToXHexPound = function(r, g, b) {
+    return "#" + colorutils.toHex(r) + colorutils.toHex(g) + colorutils.toHex(b);
+};
+colorutils.rgbToCSSRGB = function(r, g, b, a) {
+    return "rgba(" + Math.round(r) + "," + Math.round(g) + "," + Math.round(b) + "," + (Math.round(a) / 255) + ")";
+};
+colorutils.rgbToHexForKML = function(r, g, b, a) {
+    return colorutils.toHex(a) + colorutils.toHex(g) + colorutils.toHex(b) + colorutils.toHex(r);
+};
+colorutils.toHex = function(n) {
+    n = parseInt(n, 10);
+    if (isNaN(n)) {
+        return "00"
+    }
+    n = Math.max(0, Math.min(n, 255));
+    var base = "0123456789ABCDEF";
+    return base.charAt((n - n % 16) / 16) + base.charAt(n % 16)
+};
+
+colorutils.to255 = function(n) {
+    return parseInt(n, 16)
+};
+colorutils.xHexto255 = function(h) {
+   	h = h.split("0x")[1].toString();
+    var r = colorutils.to255(h.substring(0, 2));
+    var g = colorutils.to255(h.substring(2, 4));
+    var b = colorutils.to255(h.substring(4, 6));
+    var a = colorutils.to255(h.substring(6, 8));
+    return colorutils.rgbToCSSRGB(r, g, b, a);
+};
+colorutils.xHextoRGBAArray = function(h) {
+    h = h.split("0x")[1].toString();
+   	var r = colorutils.to255(h.substring(0, 2));
+    var g = colorutils.to255(h.substring(2, 4));
+    var b = colorutils.to255(h.substring(4, 6));
+    var a = colorutils.to255(h.substring(6, 8));
+    return [r, g, b, a];
+};
+colorutils.convertCSSrgbToHex = function(str){
+	str = str.toString().toLowerCase();
+	var rgb = str.split("(")[1].split(")")[0].split(" ").join("").split(",");
+	var r = colorutils.toHex(Number(rgb[0]));
+	var g = colorutils.toHex(Number(rgb[1]));
+	var b = colorutils.toHex(Number(rgb[2]));	
+	return "#"+r+g+b;
+}
