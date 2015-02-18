@@ -55,7 +55,7 @@ colorutils.rgbaFadeSet = function(parts){
 	}
 	return out;
 }
-colorutils.convertMeasuresToColors = function(valuearr, colorSet, minMax){
+colorutils.convertMeasuresToColors = function(valuearr, colorSet, minMax, f){
 	arr = [].concat(valuearr);
 	if(minMax!=undefined){
 		arr.push(minMax[0]);
@@ -82,9 +82,14 @@ colorutils.convertMeasuresToColors = function(valuearr, colorSet, minMax){
 		var r = Math.round(colorSet[0][position]);
 		var g = Math.round(colorSet[1][position]);
 		var b = Math.round(colorSet[2][position]);
-		var a = Math.round(colorSet[3][position])/255;
-		out.push("rgba("+r+","+g+","+b+","+a+")");
+		var a = Math.round(colorSet[3][position]);
+		if(f == undefined){
+			out.push(colorutils.rgbToCSSRGB(r,g,b,a));
+		}else{
+			out.push(f(r,g,b,a));
+		}
 	}
+	
 	if(minMax != undefined){
 		out = out.slice(0, out.length-2);
 	}
