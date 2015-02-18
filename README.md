@@ -28,7 +28,7 @@ var domain = [-100,100];
 var measureColors = colorutils.convertMeasuresToColors(measures, colorSet, domain);
 ```
 
-The method rgbaFadeSet returns an array with 4 child arrays: [Rs,Gs,Bs,As]. You can also use colorutils to pass the resulting colorSet into the method convertRGBAArrays to receive an array of colors formatted to different types. Available functions are colorutils.rgbToHex, colorutils.rgbToXHex, colorutils.rgbToHexPound, colorutils.rgbToCSSRGB, and colorutils.rgbToHexForKML. You can also pass in an anonamous function which receives r, g, b, and a as paramaters. If no formatting function is supplied, it defaults to rgbToCSSRGB.
+The method rgbaFadeSet returns an array with 4 child arrays: [Rs,Gs,Bs,As]. You can also use colorutils to pass the resulting colorSet into the method convertRGBAArrays to receive an array of colors formatted to different types. Available functions are colorutils.rgbToHex, colorutils.rgbToXHex, colorutils.rgbToHexPound, colorutils.rgbToCSSRGB, and colorutils.rgbToHexForKML. You can also pass in an anonamous function which receives r, g, b, and a as parameters. If no formatting function is supplied, it defaults to rgbToCSSRGB.
 
 ```sh
 var hexSet = colorutils.convertRGBAArrays(colorSet, colorutils.rgbToCSSRGB);
