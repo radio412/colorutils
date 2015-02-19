@@ -56,7 +56,13 @@ colorutils.convertMeasuresToColors(measures, colorSet, [-100,100],  function(r,g
 ## Apply the output to a view
 Results can be used to color the measures any way you wish. Here I simply populated divs and set the background color:
 
-![Alt text](http://i.imgur.com/G1KYAwi.png)
+Divs (a working example is in zip file):
+![](http://i.imgur.com/G1KYAwi.png)
 
-See the example HTML file to see how I did this with Divs.
+Using the library to color objects in three.js:
+![](http://i.imgur.com/EBAJLYQ.png)
+
+ 
+
+
 
