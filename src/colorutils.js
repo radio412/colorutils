@@ -55,6 +55,24 @@ colorutils.rgbaFadeSet = function(parts){
 	}
 	return out;
 }
+colorutils.convertMeasuresToLog = function(values, base, zeroCompensate){
+	var logMeasures = [];
+	if(zeroCompensate == true){
+		var minVal = Math.min.apply(Math, values);
+		var shiftedMeasures = [];
+		if(minVal<=0){
+			for(var i = 0; i< values.length;i++){
+				shiftedMeasures.push(values[i] + Math.abs(minVal)+1);
+			}
+			values = shiftedMeasures;
+		}
+	}
+	for(var i = 0; i< values.length;i++){
+			logMeasures.push(Math.log(values[i])/Math.log(base));
+	}
+	return logMeasures;
+}
+
 colorutils.convertMeasuresToColors = function(valuearr, colorSet, minMax, f){
 	arr = [].concat(valuearr);
 	if(minMax!=undefined){
