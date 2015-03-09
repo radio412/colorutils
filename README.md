@@ -54,7 +54,7 @@ colorutils.convertMeasuresToColors(measures, colorSet, [-100,100],  function(r,g
 
 
 ## Working with log values
-You may find that using log values derived from your data may lead to better differentiation between colors. A log function is supplied in the utility. For parameters, you supply values, the log base and if you'd like to compensate for negative values. The last parameter which compensates for negative values preserves the value domain span by shifting all values above zero by the lowest number encountered in the data. So a data set of -3, 1, and 4 becomes 0, 4, 8 because -3 is the lowest value and its absolute value is applied to every value in the set. A log set is then produced capable of mapping to a color. Such a domain shift and log conversion should be documented and explained to the user. The usage us simple.
+You may find that using log values derived from your data may lead to better differentiation between colors. A log function is supplied in the utility. For parameters, you supply values, the log base and if you'd like to compensate for negative values. The last parameter which compensates for negative values preserves the value domain span by shifting all values above zero by the lowest number encountered in the data. So a data set of -3, 1, and 4 becomes 0, 4, 7 because -3 is the lowest value and its absolute value is applied to every value in the set. A log set is then produced capable of mapping to a color. Such a domain shift and log conversion should be documented and explained to the user. The usage us simple.
 
 ````sh
 var measures = [-54,23,12,16,-68,-24,19,22,-15,44,33,78,11];
