@@ -2,7 +2,7 @@
 This is a simple color function set for dynamic range heat mapping. Any number of colors can be input with weighting, and measure sets can be converted to colors. Alpha is supported.
 
 ## Working with the library:
-Before jumping into the examples below, let's define some example colors to work with. The library accepts colors as 4 position arrays in 0-255 format:
+Before jumping into the examples below, let's define some example colors to work with. The library accepts colors as 4 position arrays (r, g, b, a) in 0-255 format:
 ```sh
 Red = [255, 0, 0, 255];
 Yellow =  [254, 232, 75, 255];
